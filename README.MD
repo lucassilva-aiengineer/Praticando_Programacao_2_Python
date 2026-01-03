@@ -1,0 +1,1 @@
+Este repositório é voltada a prática de tópicos importantes em programação python. 
