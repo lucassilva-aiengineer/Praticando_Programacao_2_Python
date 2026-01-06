@@ -1,0 +1,40 @@
+Relatório de Descrição de Projeto: Sistema de Pizzaria Online
+
+
+1. Visão Geral do Projeto
+Este projeto consiste no desenvolvimento de um sistema de gerenciamento para uma pizzaria online, utilizando a linguagem Python. O foco principal é a aplicação prática de conceitos avançados de engenharia de software e lógica de programação.
+Data de Início: 06/01/2025
+Data de Término: 09/01/2025
+Linguagem Principal: Python 3.12
+2. Escopo do Projeto
+O escopo compreende a criação de uma solução funcional que entregue os seguintes resultados:
+Interface para seleção de produtos (pizzas, bebidas, etc.).
+Processamento de pedidos e cálculos de valores.
+Gestão de dados de clientes e inventário básico.
+Tratamento de erros para garantir a resiliência do sistema.
+3. Objetivos de Aprendizagem e Técnicos
+O projeto foi desenhado para consolidar o domínio sobre os seguintes pilares da programação:
+Categoria
+Tecnologias e Conceitos Aplicados
+Paradigmas
+Programação Orientada a Objetos (POO) e Paradigma Funcional.
+Estruturas de Dados
+Listas, Tuplas, Dicionários e Conjuntos (Sets).
+Fluxo e Controle
+Laços de repetição, Estruturas condicionais e Blocos try...except.
+Qualidade de Código
+Typing annotations para tipagem estática e uso de bibliotecas externas/nativas.
+
+
+4. Cronograma e Padrão de Desempenho
+O desenvolvimento seguirá um cronograma intensivo de 4 dias, com marcos bem definidos:
+06/01: Definição do Escopo e Planejamento do Design.
+06/01 a 09/01: Fase de Codificação.
+09/01: Finalização e Entrega do Produto.
+5. Ciclo de Vida de Desenvolvimento (SDLC)
+O projeto adota uma metodologia linear para garantir a qualidade em cada etapa:
+Scope: Definição dos requisitos e funcionalidades.
+Design: Arquitetura do sistema e modelagem das classes.
+Build: Codificação e implementação das regras de negócio.
+Testing: Validação de bugs e testes de usabilidade.
+Deploy: Lançamento da versão final do sistema.
