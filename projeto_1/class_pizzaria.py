@@ -1,4 +1,10 @@
-import time 
+import time
+# from class_colaborador import Colaborador
+import class_colaborador
+from class_cliente import Cliente  
+import class_gerente 
+import funcoes 
+
 
 class Pizzaria: 
 
@@ -6,7 +12,7 @@ class Pizzaria:
     estoque= None, historico_pedidos= None, cardapio= None, pedidos_em_preparo= None, \
     fornecedores= None):
 
-        self.__id_ = gerar_id()
+        self.__id_ = funcoes.gerar_id()
         self.__gerente: str = gerente if gerente != None else ""
         self.__equipe: list = equipe if equipe != None else list()
         self.__folha_pagamento: list = folha_pagamento if folha_pagamento != None else list()
@@ -158,7 +164,7 @@ e a segunda quando o usuário desejar. """
             return usuario_validado 
 
 
-        avaliacao_usuario = validar_usuario 
+        avaliacao_usuario = validar_usuario()
 
         if avaliacao_usuario: 
 
@@ -187,7 +193,7 @@ Para parar digite cancelar.""")
                     nome_formatado = nome.title()
 
                     idade = float(input("Indique a idade do candidato: "))
-                    cpf = float(input("Indique o cpf do candidato: "))
+                    cpf = input("Indique o cpf do candidato: ")
                     cargo = input("Indique o cargo do candidato: ")
                     salario = float(input("Indique o salário inicial do candidato: "))
 
@@ -195,7 +201,7 @@ Para parar digite cancelar.""")
 
                         if  1600.00 < salario < 10000.00:
 
-                            candidato = colaborador.Colaborador(nome_formatado, idade, cpf, cargo, salario)
+                            candidato = class_colaborador.Colaborador(nome_formatado, cpf, cargo, salario, idade)
                             self.__equipe.append(candidato)
 
                             trabalhadores_contratados += 1
@@ -250,4 +256,16 @@ Para parar digite cancelar.""")
 # Testando a class Pizzaria. 
 
 # Criar a classe Colaborador, e consequêntemente criar a classe pessoa, e gerente para testar a classe pizzaria. 
-# pizzaria = Pizzaria()
+
+gerente = class_gerente.Gerente(nome= "Marcos", cpf= "00000-0000", salario= 5000, \
+senha= "abcd")
+
+print(gerente.id_)
+
+pizzaria = Pizzaria(gerente= gerente)
+
+print(pizzaria.equipe)
+
+pizzaria.contratar_colaborador()
+
+print(pizzaria.equipe)
