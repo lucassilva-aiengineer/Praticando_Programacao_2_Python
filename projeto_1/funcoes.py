@@ -19,3 +19,10 @@ def gerar_id():
 
     return id_ 
 
+
+
+def calcular_preco():
+
+    """Esta função calcula o valor total do preco"""
+
+    pass 
