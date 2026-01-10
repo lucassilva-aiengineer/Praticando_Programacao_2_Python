@@ -1,4 +1,6 @@
 import random 
+from class_estoque import Estoque
+
 
 def gerar_id():
 
@@ -21,8 +23,17 @@ def gerar_id():
 
 
 
-def calcular_preco():
+def calcular_custo_pizza():
 
-    """Esta função calcula o valor total do preco"""
+    """Esta função calcula o valor de custo das pizzas 
+    calculando os valores dos igredientes. """
 
     pass 
+
+
+def calcular_valor_estoque(objeto):
+
+    valor_total = 0 
+
+    for item in objeto.__lista_itens 
+

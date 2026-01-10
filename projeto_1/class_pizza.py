@@ -6,7 +6,7 @@ class Pizza:
         self.__descricao: str = descricao if descricao else ""
         self.__igredientes: list = [] if not igredientes else igredientes
         self.__preco: float = preco if preco != None else 0
-        self.__custo: float = custo if custo else 0
+        self.__custo: funcoes.calcular_custo_pizza(self.__igredientes)
         self.__unidades: int = unidades if unidades else 0
         self.__preco_total: float = self.__unidades * self.__preco
 
@@ -72,3 +72,26 @@ class Pizza:
 
 
     # Métodos 
+
+    def adicionar_igredientes(self):
+
+        """ Este método permite a adicão de igredientes a pizza. """
+
+        igredientes_adicionar = int(input("Indique a quantidade de igredientes adicionados: "))
+
+        igredientes_adicionados = 0
+        while igredientes_adicionados < igredientes_adicionar:
+
+            nome = input("Indique o nome do igrediente: ")
+
+            # self.__igredientes += [nome]
+            self.__igredientes.extend([nome])
+
+            igredientes_adicionar += 1 
+
+        print("Operação concluída :)")
+        time.slee(2)
+
+        print("...")
+        time.sleep(2)
+
