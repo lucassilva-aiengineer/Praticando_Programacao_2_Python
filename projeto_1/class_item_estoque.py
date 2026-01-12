@@ -1,19 +1,19 @@
-from funcoes import gerar_id
+import funcoes_a
 
 class ItemEstoque:
     """ Esta classe modela os itens que poderam ser adicionados 
     ao estoque da pizzaria."""
 
-    def __init__(self, nome, custo= None, validade: str= "01-01-2026", unidades= None, fornecedores= None):
+    def __init__(self, nome, custo= None, validade: str= "01-01-2026", quantidade= None, fornecedores= None):
 
-        self.__id_ = gerar_id()
+        self.__id_ = funcoes_a.gerar_id()
         self.__nome = nome 
         self.__fornecedores = [] if fornecedores == None else fornecedores
         self.__custo: float = custo if custo != None else 0 
         self.__validade: str = validade 
-        self.__vencimento: bool = False 
-        self.__unidades: int = 0 if unidades == None else unidades 
-        self.__preco_total: float = self.__unidades * self.__custo 
+        self.__vencido: bool = False 
+        self.__quantidade: int = 0 if quantidade == None else quantidade 
+        self.__preco_total: float = self.__quantidade * self.__custo 
 
 
     # Definindo os getters 
@@ -34,12 +34,16 @@ class ItemEstoque:
         return self.__validade 
 
     @property
-    def vencimento(self):
-        return self.__vencimento 
+    def vencido(self):
+
+        """ Quando o item estiver vencido terá valor True 
+        quando não terá valor false."""
+
+        return self.__vencido 
 
     @property 
-    def unidades(self):
-        return self.__unidades 
+    def quantidade(self):
+        return self.__quantidade
 
     @property 
     def preco_total(self):
@@ -63,13 +67,13 @@ class ItemEstoque:
     def validade(self, nova_validade):
         self.__validade = nova_validade
 
-    @vencimento.setter 
-    def vencimento(self, novo_vencimento):
-        self.__vencimento = novo_vencimento 
+    @vencido.setter 
+    def vencido(self, novo_vencimento):
+        self.__vencido = novo_vencimento
 
-    @unidades.setter 
-    def unidades(self, quantidade_unidades):
-        self.__unidades = quantidade_unidades 
+    @quantidade.setter 
+    def quantidade(self, quantidade_unidades):
+        self.__quantidade = quantidade_unidades 
 
     @preco_total.setter 
     def preco_total(self, novo_preco):

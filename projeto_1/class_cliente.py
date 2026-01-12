@@ -21,3 +21,6 @@ class Cliente(Pessoa):
     def pedidos(self, novos_pedidos):
         self.__pedidos = novos_pedidos
 
+
+
+    
