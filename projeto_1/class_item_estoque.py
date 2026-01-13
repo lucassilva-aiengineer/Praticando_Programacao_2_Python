@@ -1,4 +1,18 @@
 import funcoes_a
+from datetime import datetime
+
+def comparar_datas(validade):
+
+
+    hoje = datetime.now()
+    if validade <= hoje:  
+
+        return True
+
+    else: 
+        return False 
+
+# assert comparar_datas(data) == True, "Deveria ser True" 
 
 class ItemEstoque:
     """ Esta classe modela os itens que poderam ser adicionados 
@@ -11,7 +25,7 @@ class ItemEstoque:
         self.__fornecedores = [] if fornecedores == None else fornecedores
         self.__custo: float = custo if custo != None else 0 
         self.__validade: str = validade 
-        self.__vencido: bool = False 
+        self.__vencido: bool = comparar_datas(self.__validade)  
         self.__quantidade: int = 0 if quantidade == None else quantidade 
         self.__preco_total: float = self.__quantidade * self.__custo 
 
