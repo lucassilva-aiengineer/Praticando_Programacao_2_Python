@@ -126,4 +126,3 @@ imprir_usuario(nome= "Mateus", idade= 20, cidade= "Goiânia")
 # Objetivo, um sistema de estoque que utilize mais, funções lambda, 
 # lists compression, funções especiais, map, filter, reduce, *args e **kwargs.
 
- 

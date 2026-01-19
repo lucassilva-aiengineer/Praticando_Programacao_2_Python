@@ -6,7 +6,7 @@ de profissionais altorisados que podem fazer alterações neste estoque, além d
 o profissional que manipula o estoque, promovendo alterações no estoque por meio do agente e recebendo informações sobre o estoque como informações descritivas, diagnósticas, preditivas e prescritivas relacionadas ao nosso estoque. 
 
 
-O usuário acesso a nossa plataforma, adiciona os produtos ao estoque de uma forma simplificada por meio do chatbot, e obtem atualizações do estoque e das vendas, (quando acessamos o estoque, acessamos as vendas, acessando as vendas, acessamos os funcionários, então o estoque é uma área muito importante), além de relatórios com recursos gráficos simplificados por meio de uma linguagem natural os dados mais importantes acerca do negócio. 
+O usuário tem acesso a nossa plataforma adiciona os produtos ao estoque de uma forma simplificada por meio do chatbot, obtem atualizações do estoque e das vendas (quando acessamos o estoque acessamos as vendas acessando e acessamos os funcionários, então o estoque é uma área muito importante), além de relatórios com recursos gráficos simplificados por meio de uma linguagem natural os dados mais importantes acerca do negócio. 
 
 
 <!-- Link Para o nosso diarama de classes -->
