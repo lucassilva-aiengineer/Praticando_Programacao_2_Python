@@ -19,6 +19,7 @@ class Pessoa:
         self.__cpf = cpf 
         self.__senha = senha 
         self.__salario = salario 
+        self.__status = True
 
         Pessoa.objetos_pessoa_criados.append(self)
         Pessoa.ids_gerados.append(self.__id_pessoa)
@@ -46,7 +47,16 @@ class Pessoa:
 
     @property 
     def cpf(self)-> str:
-        return self.__cpf 
+
+        # cpf_formatado = [cpf[indice] for letra in range(len(self.__cpf)) if ]
+        cpf_formatado_lista = [tupla[1] if tupla[0] < 2 else "*" for tupla in enumerate(self.__cpf)]
+
+        cpf_formatado = ""
+
+        for caracter in cpf_formatado_lista: 
+            cpf_formatado += caracter 
+
+        return cpf_formatado 
 
     @property 
     def senha(self)-> str :
@@ -56,6 +66,9 @@ class Pessoa:
     def salario(self)-> float: 
         return self.__salario 
 
+    @property 
+    def status(self)-> bool: 
+        return self.__status
 
     # Defindo os setters 
     # A maneira pela qual os atributos poderam ser escritos. 
@@ -85,4 +98,8 @@ class Pessoa:
     def salario(self, novo_salario: float)-> None:
         self.__salario = novo_salario 
 
+
+    @status.setter 
+    def status(self, novo_status: bool)-> None: 
+        self.__status = novo_status
 

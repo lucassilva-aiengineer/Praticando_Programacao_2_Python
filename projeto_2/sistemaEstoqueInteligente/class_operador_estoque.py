@@ -22,4 +22,5 @@ class OperadorEstoque(Pessoa):
         return self.__lider 
 
     @lider.setter 
-    def 
+    def lider(self, novo_lider: Union[Pessoa, Gerente, str])-> None:
+        self.__novo_lider = novo_lider
