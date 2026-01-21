@@ -2,7 +2,7 @@
 
 from class_pessoa import Pessoa 
 from typing import Union # Bíblioteca para as anotações de tipo. 
-from class_gerente Gerente 
+from class_gerente import Gerente 
 
 class OperadorEstoque(Pessoa):
 
@@ -10,7 +10,7 @@ class OperadorEstoque(Pessoa):
     def __init__(self, nome: str, idade: int, cpf: str, senha: str, salario: float,  lider: Union[Gerente, str, Pessoa]= ""): # lider pode assumir um destes tipos de dados: Gerente, Pessoa ou float. 
 
         # Lembre-se atributos privados métodos públicos. 
-        super().__init__(nome, idade, cpf, senha, salario, lider)  # Eu crio um objeto pessoa
+        super().__init__(nome, idade, cpf, senha, salario)  # Eu crio um objeto pessoa
         self.__lider = lider                                    # E especializo o objeto filho. 
 
 

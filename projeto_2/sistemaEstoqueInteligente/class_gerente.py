@@ -1,18 +1,30 @@
 from class_pessoa import Pessoa
 from typing import List
-from class_operador_estoque import OperadorEstoque
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from class_operador_estoque import OperadorEstoque 
+
 import time
 import sys
+from faker import Faker
+import random  
+
+
+
 
 class Gerente(Pessoa):
 
     """A classe que define a criação dos objetos Gerentes, aqueles que admnistram equipes
     admitindo ou demintindo funcionários."""
-    def __init__(self, nome: str= "", idade: int= 0, cpf: str= "", senha: str= "", salario: float=  0.0, equipe: List[OperadorEstoque, Pessoa]= [])-> None:
+    def __init__(self, nome: str= "", idade: int= 0, cpf: str= "", senha: str= "", salario: float=  0.0, equipe: list[OperadorEstoque | Pessoa] = [])-> None:
 
         super().__init__(nome, idade, cpf, senha, salario)  # Instânciamos um objeto pessoa e depois especializamos. 
 
         self.__equipe = equipe 
+
+        for colaborador in self.__equipe:      # Alterando 
+            colaborador.lider = self
 
 
     # Defindo os Getters 
@@ -91,3 +103,22 @@ CPF: {colaborador.cpf}     |
 
             return False 
 
+
+# Testando a classe Gerente 
+
+def teste_1()-> None:
+
+    faker = Faker('pt_BR')
+
+    objetos_pessoa = [OperadorEstoque(faker.name_male(),
+                                        random.randint(20, 70), 
+                                        faker.cpf(),
+                                        senha= 'abcd',
+                                        salario= random.unform(20000, 30000), 
+                                        # lider= "Gerente A"
+                                        ) for numero in range(5)]
+
+
+    gerente_1 = Gerente("Marcos", 22, "00000-0000", "1234", 30000, objetos_pessoa)
+
+    

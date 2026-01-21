@@ -1,25 +1,36 @@
-# Class pessoa 
-
+from __future__ import annotations
 from typing import List
+from modulo_funcoes import funcoes
+from typing  import TYPE_CHECKING 
+
+if TYPE_CHECKING:
+    from class_gerente import Gerente
+
+from typing import Optional
+
+
+# Classe Pessoa
 
 class Pessoa:
 
     """ A classe que define o objeto pessoa, a super classe ou classe mãe das 
     classes OperadorEstoque e Gerente"""
 
-    objetos_pessoa_criados: List[Pessoa] = []   # Lista com todos os obetos criados 
+    objetos_pessoa_criados: list[Pessoa] = []   # Lista com todos os obetos criados 
+    # objetos_pessoa_criados: list['Pessoa'] = []   # Sem a importação __future__
     ids_gerados: List[str] = []                 # Lista com todos os ids criados 
     pessoas_criadas = 0                         # Quantidade com todas as pessoas criadas
 
     def __init__(self, nome: str= "", idade: int= 0, cpf: str= "", senha: str= "", salario: float= 0.0):
 
-        self.__id_pessoa = modulo_funcoes.gerar_id()
+        self.__id_pessoa = funcoes.gerar_id(caracteres= 8)
         self.__nome = nome 
         self.__idade = idade 
         self.__cpf = cpf 
         self.__senha = senha 
         self.__salario = salario 
         self.__status = True
+        self.__lider: Optional[Gerente] = None
 
         Pessoa.objetos_pessoa_criados.append(self)
         Pessoa.ids_gerados.append(self.__id_pessoa)
@@ -71,6 +82,9 @@ class Pessoa:
         return self.__status
 
     # Defindo os setters 
+    @property 
+    def lider(self)-> Gerente: 
+        return self.__lider
     # A maneira pela qual os atributos poderam ser escritos. 
     # Os atributos podem ser alterados, porém da forma que eu definir. 
 
@@ -103,3 +117,13 @@ class Pessoa:
     def status(self, novo_status: bool)-> None: 
         self.__status = novo_status
 
+    @lider.setter 
+    def lider(self, novo_lider: Gerente)-> None:
+        self.__lider = novo_lider
+
+
+pessoa_1 = Pessoa("Mateus", 20, "0000-0000", "abcd", 15000)
+# Tudo Funcionando Bem. 
+print(pessoa_1.id_pessoa)
+
+print(pessoa_1.lider)
