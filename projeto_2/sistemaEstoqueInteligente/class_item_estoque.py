@@ -1,6 +1,7 @@
 # Classe item estoque 
 
 from typing import Union, List
+from datetime import datetime, timedelta
 
 class ItemEstoque: # PascalCase, todas as palavras com letras maiúsculas.
 
@@ -8,8 +9,8 @@ class ItemEstoque: # PascalCase, todas as palavras com letras maiúsculas.
         que serão armazenados no estoque. """
 
 
-    def __init__(self, nome: str= "", validade: Union[str]= "", descricao: str= "", valor: float= 0.0, \
-    fornecedores: List[str]= [], vencimento: bool= False)-> None:
+    def __init__(self, nome: str= "", validade: Union[str]= "", valor: float= 0.0, quantidade: int= 0, \
+        peso: float= 0.0, descricao: str= "", fornecedores: List[str]= [], vencimento: bool= False)-> None:
 
 
         self.__nome = nome
@@ -18,13 +19,14 @@ class ItemEstoque: # PascalCase, todas as palavras com letras maiúsculas.
         self.__valor = valor 
         self.__fornecedores = fornecedores 
         self.__vencimento = vencimento  
+        self.__quantidade = quantidade 
+        self.__peso = peso
 
 
     # Os nossos getters 
 
     @property 
     def nome(self)-> str:
-        return self.__nome
 
     @property
     def validade(self)-> str:
@@ -46,14 +48,23 @@ class ItemEstoque: # PascalCase, todas as palavras com letras maiúsculas.
     def vencimento(self)-> bool:
         return self.__vencimento 
 
+    @property 
+    def quantidade(self)-> int:
+        return self.__quantidade
 
+    @property 
+    def peso(self)-> float: 
+        return self.__peso 
 
     # Os nossos setters 
     # Que nos permitem o acesso a escrita os métodos de escrita.
     
     @nome.setter 
-    def nome(self, novo_nome: str)-> None: 
-        self.__nome =  novo_nome
+    def nome(self, novo_nome: str)-> None:
+
+        nome_formatado = novo_nome.title()
+
+        self.__nome =  nome_formatado 
 
     @validade.setter 
     def validade(self, nova_validade: str)-> None:
@@ -75,5 +86,12 @@ class ItemEstoque: # PascalCase, todas as palavras com letras maiúsculas.
     def vencimento(self, novo_vencimento: str)-> None:
         self.__vencimento 
 
+    @quantidade.setter 
+    def quantidade(self, nova_quantidade: int):
+        self.__quantidade = nova_quantidade 
 
+    @peso.setter 
+    def peso(self, novo_peso: float):
 
+        assert novo_peso > 0.0 and novo_peso < 100.0, " O novo peso deve ser maior do que 0 e menor que 100 (kg).  " 
+        self.__peso = novo_peso 

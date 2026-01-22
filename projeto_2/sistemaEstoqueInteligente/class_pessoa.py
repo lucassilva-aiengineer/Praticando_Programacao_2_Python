@@ -1,12 +1,12 @@
 from __future__ import annotations
-from typing import List
+from typing import List, Union
 from modulo_funcoes import funcoes
 from typing  import TYPE_CHECKING 
 
 if TYPE_CHECKING:
     from class_gerente import Gerente
 
-from typing import Optional
+from typing import Optional, Union 
 
 
 # Classe Pessoa
@@ -30,7 +30,7 @@ class Pessoa:
         self.__senha = senha 
         self.__salario = salario 
         self.__status = True
-        self.__lider: Optional[Gerente] = None
+        # self.__lider: Union[Gerente, Pessoa, None] = None
 
         Pessoa.objetos_pessoa_criados.append(self)
         Pessoa.ids_gerados.append(self.__id_pessoa)
@@ -50,6 +50,7 @@ class Pessoa:
 
     @property 
     def nome(self)-> str: 
+
         return self.__nome 
 
     @property 
@@ -82,9 +83,9 @@ class Pessoa:
         return self.__status
 
     # Defindo os setters 
-    @property 
-    def lider(self)-> Gerente: 
-        return self.__lider
+    # @property 
+    # def lider(self)-> Union[Gerente, Pessoa, None]: 
+    #     return self.__lider
     # A maneira pela qual os atributos poderam ser escritos. 
     # Os atributos podem ser alterados, porém da forma que eu definir. 
 
@@ -117,13 +118,14 @@ class Pessoa:
     def status(self, novo_status: bool)-> None: 
         self.__status = novo_status
 
-    @lider.setter 
-    def lider(self, novo_lider: Gerente)-> None:
-        self.__lider = novo_lider
+    # @lider.setter 
+    # def lider(self, novo_lider: Gerente)-> None:
+    #     self.__lider = novo_lider
 
 
-pessoa_1 = Pessoa("Mateus", 20, "0000-0000", "abcd", 15000)
-# Tudo Funcionando Bem. 
-print(pessoa_1.id_pessoa)
 
-print(pessoa_1.lider)
+# pessoa_1 = Pessoa("Mateus", 20, "0000-0000", "abcd", 15000)
+# # Tudo Funcionando Bem. 
+# print(pessoa_1.id_pessoa)
+
+# print(pessoa_1.lider)

@@ -22,3 +22,12 @@ print(string_protegida)
 
 # letras += string.ascii_uppercase
 # print(letras)
+
+# Com o método de string nós podemos criar uma lista dos elementos de uma 
+# string utilizando um separador específicado 
+
+string = "Hoje é um lindo dia!"
+
+lista_palavras = string.split(" ")
+
+print(lista_palavras)

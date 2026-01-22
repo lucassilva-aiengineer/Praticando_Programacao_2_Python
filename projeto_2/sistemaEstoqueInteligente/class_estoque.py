@@ -1,3 +1,4 @@
+# from __future__ import annotations
 # Classe Estoque 
 
 # try: 
@@ -14,7 +15,11 @@ from typing import Optional # Utilizando Optional para indicarmos o tipo
                             # None. 
 
 from typing import List 
-from class_item_estoque import ItemEstoque
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from class_item_estoque import ItemEstoque
+    from modulo_funcoes import funcoes
 from faker import Faker
 import random
 
@@ -22,12 +27,14 @@ import random
 
 class Estoque:
 
-    def __init__(self, estoque_operadores: Optional[None], estoque_itens: List[None]):
-        pass 
+    def __init__(self, estoque_operadores: Optional[None], estoque_itens: List[ItemEstoque]= []):
 
-
-
-
+        self.__id_ = funcoes.gerar_id()
+        self.__estoque_itens = estoque_itens
+        self.__itens_vencidos = [item for item in self.__estoque_itens if item.vencimento == True]
+        self.__itens_validos = [item for item in self.__estoque_itens if item.vencimento == False]
+        self.__itens_vencimento_proximo = [item for item in self.__estoque_itens if item.vencimento_proximo == True]
+        self.__itens_em_falta = [item for item in self.__estoque_itens if item.quantidade <= 0]
 # TipoItemEstoque = type(ItemEstoque)
 
 # Nomes de classes já são tipos válidos 

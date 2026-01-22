@@ -24,18 +24,18 @@ class Gerente(Pessoa):
         self.__equipe = equipe 
 
         for colaborador in self.__equipe:      # Alterando 
-            colaborador.lider = self
+            colaborador.lider = self.__nome
 
 
     # Defindo os Getters 
     # O acesso de leitura. 
 
     @property 
-    def equipe(self)-> List[OperadorEstoque, Pessoa]:
+    def equipe(self)-> list[OperadorEstoque | Pessoa]:
         return self.__equipe 
 
     @equipe.setter 
-    def equipe(self, nova_equipe: List[OperadorEstoque, Pessoa])-> None:
+    def equipe(self, nova_equipe: list[OperadorEstoque | Pessoa])-> None:
         self.__equipe = nova_equipe
 
 
